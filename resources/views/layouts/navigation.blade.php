@@ -47,7 +47,7 @@
             </a>
         </li>
 
-        <!-- Friends -->
+       {{-- <!-- Friends -->
         <li class="nav-item">
             <a class="nav-link py-0 py-lg-8" id="tab-friends" href="#tab-content-friends" title="Friends"
                data-bs-toggle="tab" role="tab">
@@ -62,7 +62,7 @@
                     </svg>
                 </div>
             </a>
-        </li>
+        </li>--}}
 
         <!-- Chats -->
         <li class="nav-item">
@@ -91,22 +91,6 @@
                          class="feather feather-bell">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
-                </div>
-            </a>
-        </li>
-
-        <!-- Support -->
-        <li class="nav-item d-none d-xl-block flex-xl-grow-1">
-            <a class="nav-link py-0 py-lg-8" id="tab-support" href="#tab-content-support" title="Support"
-               data-bs-toggle="tab" role="tab">
-                <div class="icon icon-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-layout">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="3" y1="9" x2="21" y2="9"></line>
-                        <line x1="9" y1="21" x2="9" y2="9"></line>
                     </svg>
                 </div>
             </a>
