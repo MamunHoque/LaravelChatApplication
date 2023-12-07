@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
+use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -17,10 +20,11 @@ class MessageController extends Controller
 
         $message = $user->messages()->create([
             'message' => $request->input('message'),
-            'room_id' => $request->input('room_id')
+            'room_id' => $request->input('room_id') ?? 1
         ]);
-        // send event to listeners
-        broadcast(new MessageSentEvent($message, $user))->toOthers();
+
+        // todo::send event to listeners
+        //broadcast(new MessageSentEvent($message, $user))->toOthers();
 
         return [
             'message' => $message,

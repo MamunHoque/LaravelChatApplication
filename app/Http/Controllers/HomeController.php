@@ -20,8 +20,9 @@ class HomeController extends Controller
         $users = $this->home->getOtherUsers();
         $rooms = $this->home->getRooms();
 
-        return view('chat', compact('users', 'rooms'));
+        return view('home', compact('users', 'rooms'));
     }
+
 
     public function getRoom(Room $room)
     {

@@ -22,7 +22,24 @@ class StoreRoomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'selected_users' => 'required|array',
+            'selected_users.*' => 'exists:users,id',
+        ];
+    }
+
+    /**
+     * Customer message for store create API
+     *
+     * @return string[]
+     */
+    public function messages(): array
+    {
+        return [
+            'selected_users.required' => 'The selected users field is required.',
+            'selected_users.array' => 'The selected users must be an array.',
+            'selected_users.*.exists' => 'One or more selected users do not exist.',
         ];
     }
 }

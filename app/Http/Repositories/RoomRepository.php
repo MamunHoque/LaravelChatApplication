@@ -54,6 +54,7 @@ class RoomRepository implements RepositoryInterface
 
     /**
      * Get room with all members
+     *
      * @param array $select
      */
     public function getRoomWithUsers($id, $select = ['*'])
@@ -62,6 +63,8 @@ class RoomRepository implements RepositoryInterface
     }
 
     /**
+     * Store the room record to database
+     *
      * @param $room
      * @return void
      */

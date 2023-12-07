@@ -30,20 +30,6 @@ class RoomController extends Controller
         ]);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateRoomRequest $request, Room $room)
-    {
-        $this->room->update($request, $room);
-
-        return response([
-            'success' => true,
-            'message' => "Room has been update successfully."
-        ]);
-    }
-
     /**
      * Remove the specified resource from storage.
      */

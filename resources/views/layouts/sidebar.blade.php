@@ -1,7 +1,7 @@
 <aside class="sidebar bg-light">
     <div class="tab-content h-100" role="tablist">
         <!-- Create -->
-        @include('layouts.group')
+        @include('layouts.sidebar-room')
 
         <!-- Friends -->
         <div class="tab-pane fade h-100" id="tab-content-friends" role="tabpanel">

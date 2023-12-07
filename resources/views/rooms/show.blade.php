@@ -2,10 +2,8 @@
 
 @section('content')
     <!-- Chat -->
-    <main class="main is-visible" data-dropzone-area="" id="app">
-        <example-component></example-component>
+    <main class="main is-visible" data-dropzone-area="" x-data="rooms" x-init="render">
         <div class="container h-100">
-
             <div class="d-flex flex-column h-100 position-relative">
                 <!-- Chat: Header -->
                 <div class="chat-header border-bottom py-4 py-lg-7">
@@ -138,71 +136,76 @@
                 <div class="chat-body hide-scrollbar flex-1 h-100">
                     <div class="chat-body-inner">
                         <div class="py-6 py-lg-12">
-                            <!-- Message -->
-                            <div class="message message-out">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-user-profile"
-                                   class="avatar avatar-responsive">
+                            <template x-for="message in messages">
+                                <!-- Message -->
+                                <div class="message message-out">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-user-profile"
+                                       class="avatar avatar-responsive">
                                      <span
                                          class="avatar-text bg-primary">{{substr($room->name, 0, 1)}}</span>
-                                </a>
+                                    </a>
 
-                                <div class="message-inner">
-                                    <!-- Single Message -->
-                                    <div class="message-body">
-                                        <div class="message-content">
-                                            <div class="message-text">
-                                                <p>Hey, Marshall! How are you? Can you please change the color theme of
-                                                    the website to pink and purple?</p>
-                                            </div>
+                                    <div class="message-inner">
+                                        <!-- Single Message -->
+                                        <div class="message-body">
+                                            <div class="message-content">
+                                                <div class="message-text" x-text="message.message">
+                                                </div>
 
-                                            <!-- Dropdown -->
-                                            <div class="message-action">
-                                                <div class="dropdown">
-                                                    <a class="icon text-muted" href="#" role="button"
-                                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                             stroke-width="2" stroke-linecap="round"
-                                                             stroke-linejoin="round"
-                                                             class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </a>
+                                                <!-- Dropdown -->
+                                                <div class="message-action">
+                                                    <div class="dropdown">
+                                                        <a class="icon text-muted" href="#" role="button"
+                                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                 height="24"
+                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                 stroke-width="2" stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 class="feather feather-more-vertical">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="12" cy="5" r="1"></circle>
+                                                                <circle cx="12" cy="19" r="1"></circle>
+                                                            </svg>
+                                                        </a>
 
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item d-flex align-items-center text-danger"
-                                                               href="#">
-                                                                <span class="me-auto">Delete</span>
-                                                                <div class="icon">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                         height="24" viewBox="0 0 24 24" fill="none"
-                                                                         stroke="currentColor" stroke-width="2"
-                                                                         stroke-linecap="round" stroke-linejoin="round"
-                                                                         class="feather feather-trash-2">
-                                                                        <polyline points="3 6 5 6 21 6"></polyline>
-                                                                        <path
-                                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
-                                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
-                                                                    </svg>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="dropdown-item d-flex align-items-center text-danger"
+                                                                   href="#">
+                                                                    <span class="me-auto">Delete</span>
+                                                                    <div class="icon">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24"
+                                                                             height="24" viewBox="0 0 24 24" fill="none"
+                                                                             stroke="currentColor" stroke-width="2"
+                                                                             stroke-linecap="round"
+                                                                             stroke-linejoin="round"
+                                                                             class="feather feather-trash-2">
+                                                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                                                            <path
+                                                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                                                            <line x1="10" y1="11" x2="10"
+                                                                                  y2="17"></line>
+                                                                            <line x1="14" y1="11" x2="14"
+                                                                                  y2="17"></line>
+                                                                        </svg>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Single Message -->
+                                        <!-- Single Message -->
 
-                                    <div class="message-footer">
-                                        <span class="extra-small text-muted">08:45 PM</span>
+                                        <div class="message-footer">
+                                            <span class="extra-small text-muted">08:45 PM</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -231,7 +234,8 @@
 
                             <div class="col">
                                 <div class="input-group">
-                                    <textarea class="form-control px-0" placeholder="Type your message..." rows="1"
+                                    <textarea x-model="newMessage" class="form-control px-0"
+                                              placeholder="Type your message..." rows="1"
                                               data-emoji-input="" data-autosize="true"></textarea>
 
                                     <a href="#" class="input-group-text text-body pe-0" data-emoji-btn="">
@@ -251,7 +255,8 @@
                             </div>
 
                             <div class="col-auto">
-                                <button class="btn btn-icon btn-primary rounded-circle ms-5">
+                                <button @click="sendMessage" type="button"
+                                        class="btn btn-icon btn-primary rounded-circle ms-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                          stroke-linejoin="round" class="feather feather-send">
@@ -1558,4 +1563,8 @@
         <!-- Offcanvas Footer -->
     </div>
 
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/js/components/component.chat.js') }}"></script>
 @endsection

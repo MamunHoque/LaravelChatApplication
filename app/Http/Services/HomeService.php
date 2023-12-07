@@ -23,21 +23,30 @@ class HomeService
         $this->rooms = new RoomRepository();
     }
 
-    public function getUsers()
-    {
-        return $this->users->getAll(['id', 'name', 'email']);
-    }
-
+    /**
+     * Get the users list exclube auth user
+     * @return mixed
+     */
     public function getOtherUsers()
     {
         return $this->users->getOtherUsers(['id', 'name', 'email']);
     }
 
+    /**
+     * Get room information
+     * @return mixed
+     */
     public function getRooms()
     {
-        return $this->rooms->getAllWithUsers(['id', 'name', 'description']);
+        return $this->rooms->getAll(['id', 'name', 'description','user_id']);
     }
 
+    /**
+     * Get the room with users
+     *
+     * @param $id
+     * @return mixed
+     */
     public function getRoomWithUsers($id)
     {
         return $this->rooms->getRoomWithUsers($id, ['id', 'name', 'description', 'user_id']);

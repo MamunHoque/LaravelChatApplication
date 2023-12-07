@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->text('description')->nullable();
             $table->tinyInteger('is_public')->default(1);

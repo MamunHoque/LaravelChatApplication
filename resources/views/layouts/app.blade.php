@@ -23,7 +23,8 @@
           media="(prefers-color-scheme: dark)">
 
     <!-- Include the Vue.js library -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
 
     @section('css')
     @show
