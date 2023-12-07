@@ -25,12 +25,21 @@ class HomeService
 
     public function getUsers()
     {
-        return $this->users->getAll(['id','name','email']);
+        return $this->users->getAll(['id', 'name', 'email']);
+    }
+
+    public function getOtherUsers()
+    {
+        return $this->users->getOtherUsers(['id', 'name', 'email']);
     }
 
     public function getRooms()
     {
-        return $this->rooms->getAllWithUsers(['id','name','description']);
+        return $this->rooms->getAllWithUsers(['id', 'name', 'description']);
     }
 
+    public function getRoomWithUsers($id)
+    {
+        return $this->rooms->getRoomWithUsers($id, ['id', 'name', 'description', 'user_id']);
+    }
 }

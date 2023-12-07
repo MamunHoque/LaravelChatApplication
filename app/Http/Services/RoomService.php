@@ -22,6 +22,7 @@ class RoomService
     {
         $roomData = $request->only('name', 'description', 'is_public', 'selected_users');
         $roomData['user_id'] = auth()->user()->id;
+        $roomData['selected_users'][] = auth()->user()->id;
 
         DB::beginTransaction();
 

@@ -22,6 +22,9 @@
     <link class="css-dk" rel="stylesheet" href="{{ asset('assets/css/template.dark.bundle.css') }}"
           media="(prefers-color-scheme: dark)">
 
+    <!-- Include the Vue.js library -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     @section('css')
     @show
 
@@ -39,11 +42,7 @@
     <!-- Sidebar -->
 
     <!-- Chat -->
-    <main class="main">
-        <div class="container h-100">
-            @yield('content')
-        </div>
-    </main>
+    @yield('content')
     <!-- Chat -->
 
 </div>

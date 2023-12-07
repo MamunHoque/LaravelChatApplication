@@ -201,7 +201,7 @@
         <!-- Button -->
         <div class="container mt-n4 mb-8 position-relative">
             <button class="btn btn-lg btn-primary w-100 d-flex align-items-center" type="submit" id="addRoom">
-                Start chat
+                Add Chat Room
                 <span class="icon ms-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

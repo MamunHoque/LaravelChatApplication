@@ -22,7 +22,12 @@ class UserService
 
     public function getUser()
     {
-        return $this->users->getAll(['id','name','email']);
+        return $this->users->getAll(['id', 'name', 'email']);
+    }
+
+    public function getOtherUsers()
+    {
+        return $this->users->getOtherUsers(['id', 'name', 'email']);
     }
 
 }

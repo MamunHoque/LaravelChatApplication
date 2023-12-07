@@ -32,6 +32,11 @@ class UserRepository implements RepositoryInterface
         return $this->user->get($select);
     }
 
+    public function getOtherUsers($select = ['*'])
+    {
+        return $this->user->where('id', '!=', auth()->user()->id)->get($select);
+    }
+
     /**
      * Get Information
      * @param int $id

@@ -33,7 +33,7 @@ class RoomRepository implements RepositoryInterface
     }
 
     /**
-     * GetAll Information
+     * Get All Information
      * @param array $select
      */
     public function getAllWithUsers($select = ['*'])
@@ -52,6 +52,14 @@ class RoomRepository implements RepositoryInterface
         return $this->room->select($select)->find($id);
     }
 
+    /**
+     * Get room with all members
+     * @param array $select
+     */
+    public function getRoomWithUsers($id, $select = ['*'])
+    {
+        return $this->room->select($select)->with('users')->find($id);
+    }
 
     /**
      * @param $room
@@ -60,7 +68,7 @@ class RoomRepository implements RepositoryInterface
     public function store($data)
     {
         $room = $this->room->create($data);
-        $room->users()->attach($data['selected_users']);
+        $room->users()->attach(array_unique($data['selected_users']));
     }
 
     /**

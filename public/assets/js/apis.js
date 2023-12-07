@@ -2,7 +2,9 @@
 
 var token = $("meta[name=csrf-token]").attr("content");
 
-function Request(url, method, data = {}, success = () => {}, error = () => {}, headers = {}) {
+function Request(url, method, data = {}, success = () => {
+}, error = () => {
+}, headers = {}) {
     if (method.toUpperCase() === 'POST') {
         data = {
             ...data,
@@ -27,6 +29,7 @@ function Request(url, method, data = {}, success = () => {}, error = () => {}, h
 // Define a global function for the delete action
 $(document).on('click', '.delete-button', function () {
     let endPoint = $(this).attr('data-endpoint');
+    let redirectUrl = $(this).attr('data-host');
     Swal.fire({
         text: "Are you sure you would like to delete?",
         icon: "warning",
@@ -44,10 +47,10 @@ $(document).on('click', '.delete-button', function () {
                 'DELETE',
                 {},
                 () => {
-                    if (!window.dataTable) {
-                        window.location.href = window.location.href;
+                    if (redirectUrl) {
+                        window.location.href = redirectUrl;
                     }
-                    window.dataTable.draw();
+                    window.location.href = window.location.href;
                 }, (e) => {
                     Swal.fire({
                         text: e.responseJSON.message,
