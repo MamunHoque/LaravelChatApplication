@@ -21,11 +21,12 @@ Follow these steps to set up the development environment using Laravel Sail:
 
 1. **Clone the Repository:** 
   'git clone git@github.com:MamunHoque/LaravelChatApplication.git && cd LaravelChatApplication`
+2. Run cp .env.example .env
 
-2. **Start Laravel Sail:** sail up -d
+3. **Start Laravel Sail:** sail up -d
 
-3. **Access the Application:**
-    Open your web browser and visit `http://localhost`.
+4. **Access the Application:**
+    Open your web browser and visit `http://localhost:8080`.
 
 ## Usage
 
